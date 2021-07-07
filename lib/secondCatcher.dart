@@ -27,7 +27,7 @@ class MiniGameEngine extends GameEngine {
 
   @override
   String printFeedback(double time, double timer) {
-    if (timer.toStringAsFixed(2) == time.toStringAsFixed(2)) {
+    if (timer.toStringAsFixed(2).toString() == time.toStringAsFixed(2).toString()) {
       return "Good Job!";
     } else
       return "Too bad";
@@ -249,8 +249,8 @@ class MiniGameView extends GameView {
             Expanded(flex: 0, child: Image.asset('assets/secondCatcher.png')),
 
             Padding(
-                padding: EdgeInsets.only(top: 85),
-                child: Text('${engine.printFeedback(seconds, time)}',
+                padding: EdgeInsets.only(top: 75),
+                child: Text('${engine.printFeedback(time, seconds)}',
                     style: TextStyle(fontFamily: 'Forte', fontSize: 30))),
             // Time
             Padding(
