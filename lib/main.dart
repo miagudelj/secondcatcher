@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mini_game/game/game_lib.dart';
-import 'package:mini_game/secondCatcher.dart';
+import 'package:mini_game/game/secondCatcher.dart';
 import 'package:provider/provider.dart';
 
 void main() {
