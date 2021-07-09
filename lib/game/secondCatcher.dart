@@ -238,13 +238,9 @@ class MiniGameView extends GameView {
                 padding: EdgeInsets.only(bottom: 45),
                 child: Text('${seconds.toStringAsFixed(2)}',
                     style: TextStyle(fontFamily: 'Arial', fontSize: 30))),
-            // Timer
-            Padding(
-                padding: EdgeInsets.only(bottom: 45),
-                child: Text('Make a sound',
-                    style: TextStyle(fontFamily: 'Forte', fontSize: 30))),
+
+            //todo button weg und mit stimmerkennung ersetzen
             ElevatedButton(
-                //todo button weg und mit stimmerkennung ersetzen
                 style: ElevatedButton.styleFrom(
                   primary: Color.fromRGBO(155, 150, 150, 1), // background
                   padding: EdgeInsets.symmetric(horizontal: 35, vertical: 5),
@@ -252,6 +248,12 @@ class MiniGameView extends GameView {
                 onPressed: () => {engine.setRunningTimeVoice(seconds)},
                 child: Text('STOP!',
                     style: TextStyle(fontFamily: 'Forte', fontSize: 30))),
+            // Timer
+            Padding(
+                padding: EdgeInsets.only(bottom: 45, top: 45),
+                child: Text('Make a sound',
+                    style: TextStyle(fontFamily: 'Forte', fontSize: 30))),
+
           ],
         ));
   }
