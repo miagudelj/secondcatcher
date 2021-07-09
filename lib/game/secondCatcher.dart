@@ -14,9 +14,16 @@ class MiniGameEngine extends GameEngine {
   double time = 0.0;
   double runningTime = 0.0;
 
-  void setRunningTime(double seconds) {
+  @override
+  void setRunningTimeClassic(double seconds) {
     runningTime = seconds;
     gameState = GameState.endOfClassicGame;
+  }
+
+  @override
+  void setRunningTimeVoice(double seconds) {
+    runningTime = seconds;
+    gameState = GameState.endOfVoiceGame;
   }
 
   @override
@@ -199,7 +206,7 @@ class MiniGameView extends GameView {
                   padding: EdgeInsets.symmetric(horizontal: 35, vertical: 5),
                 ),
                 onPressed: () =>
-                    {engine.setRunningTime(seconds)},
+                    {engine.setRunningTimeClassic(seconds)},
                 child: Text('STOP!',
                     style: TextStyle(fontFamily: 'Forte', fontSize: 30))),
           ],
@@ -237,7 +244,7 @@ class MiniGameView extends GameView {
                   primary: Color.fromRGBO(155, 150, 150, 1), // background
                   padding: EdgeInsets.symmetric(horizontal: 35, vertical: 5),
                 ),
-                onPressed: () => {engine.gameState = GameState.endOfVoiceGame},
+                onPressed: () => {engine.setRunningTimeVoice(seconds)},
                 child: Text('STOP!',
                     style: TextStyle(fontFamily: 'Forte', fontSize: 30))),
           ],

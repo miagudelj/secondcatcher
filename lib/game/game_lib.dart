@@ -67,6 +67,10 @@ abstract class GameEngine extends ChangeNotifier {
       : _gameState = GameState.waitForStart,
         _tickCounter = 0;
 
+  void setRunningTimeClassic(double seconds) {}
+
+  void setRunningTimeVoice(double seconds) {}
+
   void stateChanged(GameState oldState, GameState newState);
 
   void updatePhysicsEngine(int _tickCounter);
