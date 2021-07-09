@@ -71,7 +71,7 @@ abstract class GameEngine extends ChangeNotifier {
 
   void updatePhysicsEngine(int _tickCounter);
 
-  String printFeedback(double time, double timer);
+  String printFeedback();
 
   int get tickCounter => _tickCounter;
 

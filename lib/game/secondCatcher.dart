@@ -12,6 +12,12 @@ import 'package:provider/provider.dart';
 class MiniGameEngine extends GameEngine {
   Random rnd = Random();
   double time = 0.0;
+  double runningTime = 0.0;
+
+  void setRunningTime(double seconds) {
+    runningTime = seconds;
+    gameState = GameState.endOfClassicGame;
+  }
 
   @override
   void stateChanged(GameState oldState, GameState newState) {
@@ -27,13 +33,17 @@ class MiniGameEngine extends GameEngine {
   }
 
   @override
-  String printFeedback(double time, double timer) {
-    if (timer.toStringAsFixed(2).toString() == time.toStringAsFixed(2).toString()) {
-      Audio.load('assets/win_sound.wav')..play()..dispose();
+  String printFeedback() {
+    if (time.toStringAsFixed(2) == runningTime.toStringAsFixed(2)) {
+      Audio.load('assets/win_sound.wav')
+        ..play()
+        ..dispose();
       return "Good Job!";
     } else
-      Audio.load('assets/fail_sound.wav')..play()..dispose();
-      return "Too bad";
+      Audio.load('assets/fail_sound.wav')
+        ..play()
+        ..dispose();
+    return "Too bad";
   }
 }
 
@@ -104,7 +114,6 @@ class MiniGameView extends GameView {
             Padding(
                 padding: EdgeInsets.only(top: 55, bottom: 5),
                 child: Text('${engine.time.toStringAsFixed(2)}',
-                    //TODO get random number between 1 and 10
                     style: TextStyle(fontFamily: 'Forte', fontSize: 60))),
             // Timer
             Padding(
@@ -141,7 +150,6 @@ class MiniGameView extends GameView {
             Padding(
                 padding: EdgeInsets.only(top: 55, bottom: 5),
                 child: Text('${engine.time.toStringAsFixed(2)}',
-                    //TODO get random number between 1 and 10
                     style: TextStyle(fontFamily: 'Forte', fontSize: 60))),
             // Timer
             Padding(
@@ -163,7 +171,6 @@ class MiniGameView extends GameView {
   @override
   Widget getRunningPageContentClassic(BuildContext context) {
     MiniGameEngine engine = Provider.of<GameEngine>(context) as MiniGameEngine;
-    double time = 0;
     double seconds = engine.tickCounter * 20 / 1000;
 
     return Container(
@@ -192,7 +199,7 @@ class MiniGameView extends GameView {
                   padding: EdgeInsets.symmetric(horizontal: 35, vertical: 5),
                 ),
                 onPressed: () =>
-                    {engine.gameState = GameState.endOfClassicGame},
+                    {engine.setRunningTime(seconds)},
                 child: Text('STOP!',
                     style: TextStyle(fontFamily: 'Forte', fontSize: 30))),
           ],
@@ -253,7 +260,7 @@ class MiniGameView extends GameView {
 
             Padding(
                 padding: EdgeInsets.only(top: 75),
-                child: Text('${engine.printFeedback(time, seconds)}',
+                child: Text('${engine.printFeedback()}',
                     style: TextStyle(fontFamily: 'Forte', fontSize: 30))),
             // Time
             Padding(
@@ -305,7 +312,7 @@ class MiniGameView extends GameView {
 
             Padding(
                 padding: EdgeInsets.only(top: 85),
-                child: Text('${engine.printFeedback(seconds, time)}',
+                child: Text('${engine.printFeedback()}',
                     style: TextStyle(fontFamily: 'Forte', fontSize: 30))),
             // Time
             Padding(
