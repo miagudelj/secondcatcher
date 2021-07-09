@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:audiofileplayer/audiofileplayer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mini_game/game/game_lib.dart';
@@ -28,8 +29,10 @@ class MiniGameEngine extends GameEngine {
   @override
   String printFeedback(double time, double timer) {
     if (timer.toStringAsFixed(2).toString() == time.toStringAsFixed(2).toString()) {
+      Audio.load('assets/win_sound.wav')..play()..dispose();
       return "Good Job!";
     } else
+      Audio.load('assets/fail_sound.wav')..play()..dispose();
       return "Too bad";
   }
 }
