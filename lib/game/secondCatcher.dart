@@ -106,7 +106,6 @@ class MiniGameView extends GameView {
   @override
   Widget getClassicPageContent(BuildContext context) {
     MiniGameEngine engine = Provider.of<GameEngine>(context) as MiniGameEngine;
-    double seconds = engine.tickCounter * 20 / 1000;
     return Container(
         alignment: Alignment.center,
         color: Color.fromRGBO(255, 231, 231, 1),
@@ -142,7 +141,6 @@ class MiniGameView extends GameView {
   @override
   Widget getVoicePageContent(BuildContext context) {
     MiniGameEngine engine = Provider.of<GameEngine>(context) as MiniGameEngine;
-    double seconds = engine.tickCounter * 20 / 1000;
     return Container(
         alignment: Alignment.center,
         color: Color.fromRGBO(255, 231, 231, 1),
@@ -216,7 +214,6 @@ class MiniGameView extends GameView {
   @override
   Widget getRunningPageContentVoice(BuildContext context) {
     MiniGameEngine engine = Provider.of<GameEngine>(context) as MiniGameEngine;
-    double time = 0.0;
     double seconds = engine.tickCounter * 20 / 1000;
     return Container(
         alignment: Alignment.center,
@@ -261,7 +258,6 @@ class MiniGameView extends GameView {
   @override
   Widget getEndOfGamePageContentClassic(BuildContext context) {
     MiniGameEngine engine = Provider.of<GameEngine>(context) as MiniGameEngine;
-    double time = 0.0;
     double seconds = engine.tickCounter * 20 / 1000;
     return Container(
         alignment: Alignment.center,
@@ -313,7 +309,6 @@ class MiniGameView extends GameView {
   @override
   Widget getEndOfGamePageContentVoice(BuildContext context) {
     MiniGameEngine engine = Provider.of<GameEngine>(context) as MiniGameEngine;
-    double time = 0.0;
     double seconds = engine.tickCounter * 20 / 1000;
     return Container(
         alignment: Alignment.center,
