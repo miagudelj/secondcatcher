@@ -238,6 +238,11 @@ class MiniGameView extends GameView {
                 padding: EdgeInsets.only(bottom: 45),
                 child: Text('${seconds.toStringAsFixed(2)}',
                     style: TextStyle(fontFamily: 'Arial', fontSize: 30))),
+            // Timer
+            Padding(
+                padding: EdgeInsets.only(bottom: 45),
+                child: Text('Make a sound',
+                    style: TextStyle(fontFamily: 'Forte', fontSize: 30))),
             ElevatedButton(
                 //todo button weg und mit stimmerkennung ersetzen
                 style: ElevatedButton.styleFrom(
