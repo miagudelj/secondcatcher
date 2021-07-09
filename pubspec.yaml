@@ -83,6 +83,8 @@ flutter:
   uses-material-design: true
 
   assets:
+    # Sounds
     - assets/win_sound.wav
     - assets/fail_sound.wav
+    # pictures
     - assets/secondCatcher.png
